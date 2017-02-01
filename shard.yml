@@ -1,0 +1,9 @@
+name: crystal-dawg
+version: 0.1.0
+
+authors:
+  - Max <maksat.mansurov@gmail.com>
+
+crystal: 0.20.5
+
+license: MIT
