@@ -20,7 +20,7 @@ require "crystal-dawg"
 
 ```crystal
 # create dawg
-dawg = Dawg::Dawg.new
+dawg = Dawg.create
 # add words in alphabetical order
 dawg.add("taps")
 dawg.add("tops")
@@ -31,13 +31,13 @@ dawg.query("t")
 -> [taps, tops]
 
 # saving
-dawg.save("dawg.dawg")
+Dawg.save("dawg.dawg", dawg)
 
 # there is two variants of loading dawg structure
 # 1: fast but eats more memory
-dawg = Dawg::Dawg.load("dawg.dawg")
-# 2: little bit slower but usage of memory is low
-dawg = Dawg::IODawg.load("dawg.dawg")
+dawg = Dawg.load("dawg.dawg", Dawg::Type::Fast)
+# 2: little memory usage but slower
+dawg = Dawg.load("dawg.dawg", Dawg::Type::Small)
 
 ```
 
