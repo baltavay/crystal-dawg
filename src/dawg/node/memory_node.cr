@@ -1,7 +1,7 @@
 module Dawg
-  class IONode
+  class MemoryNode < AbstractNode
     property :index, :io, :edge_count, :final, :hash, :edges_pos
-    def initialize(@io : IODawg, @index : Int32, @edge_count : Int32, @final : Bool, @hash : Int32, @edges_pos : Int32)
+    def initialize(@io : MemoryDawg, @index : Int32, @edge_count : Int32, @final : Bool, @hash : Int32, @edges_pos : Int32)
 
     end
 
@@ -17,7 +17,7 @@ module Dawg
 
     def each_edge(&block)
       @io.each_edge @index do |hash, char|
-        yield hash, char
+        yield char
       end
     end
   end
